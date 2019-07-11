@@ -21,8 +21,8 @@ export class SearchInput extends Component {
 
     optional() {
         const { propsData } = this.props,
-            { selectedArr } = this.state,
-            optionalArr = [];
+              { selectedArr } = this.state,
+                optionalArr = [];
 
         Object.keys(propsData).forEach((key) => {
             optionalArr.push({
@@ -65,7 +65,7 @@ export class SearchInput extends Component {
 
     onSetSeleted(type = '', value = '') {
         const { selectedKey, selectedArr } = this.state,
-            rightType = type && selectedKey != undefined ? type : selectedKey;
+                rightType = type && selectedKey != undefined ? type : selectedKey;
 
         selectedArr.push({
             'type': rightType,
@@ -145,7 +145,7 @@ export class SearchInput extends Component {
 
     onPropsSearch() {
         const { selectedArr } = this.state;
-        
+
         if (selectedArr.length) {
             alert(JSON.stringify(selectedArr));
         } else {
