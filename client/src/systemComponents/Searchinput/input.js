@@ -24,7 +24,6 @@ export class SearchInput extends Component {
             { selectedArr } = this.state,
             optionalArr = [];
 
-
         Object.keys(propsData).forEach((key) => {
             optionalArr.push({
                 'type': key
@@ -39,12 +38,10 @@ export class SearchInput extends Component {
                 }
                 arr.push(item);
             }
-
             if (selectedArr.find(v => !v['value'])) {
                 arr = [];
             }
 
-            console.log(arr,'sadasdasd');
             this.setState({
                 optionalArr: arr
             })
@@ -68,9 +65,7 @@ export class SearchInput extends Component {
     }
 
     onSetSeleted(type = '', value = '') {
-    const { selectedKey, selectedArr } = this.state,
-            rightArr = [],
-            attrObject = {},
+        const { selectedKey, selectedArr } = this.state,
             rightType = type && selectedKey != undefined ? type : selectedKey;
 
         selectedArr.push({
@@ -78,25 +73,16 @@ export class SearchInput extends Component {
             'value': value
         })
 
-        selectedArr.reverse();
-
-        for (let i = 0; i < selectedArr.length; i++) {
-            if (!attrObject[selectedArr[i].type]) {
-                rightArr.push(selectedArr[i]);
-                attrObject[selectedArr[i].type] = true;
-            }
-        }
+        this.onChangeReplace(rightType, value);
 
         this.setState({
-            selectedArr: rightArr,
             optionalArr: [],
         })
     }
 
     onSelected(item, type) {
 
-    const { name } = item,
-            rightValue = name ? name : item;
+        const rightValue = item.name ? item.name : item;
 
         this.onSetSeleted(type, rightValue);
         this.onChangeTypeList(rightValue);
@@ -117,19 +103,31 @@ export class SearchInput extends Component {
 
     onChangeValue(type, event) {
 
-        const { selectedArr } = this.state;
-
-        this.setState({
-            selectedArr: selectedArr.map((item, index) => item.type == type ? { ...item, value: event.target.value } : item),
-        })
-
-        this.onChangeFilter(type, event.target.value);
+        this.onSearchFor(type, event.target.value);
+        this.onChangeReplace(type, event.target.value);
     }
 
-    onChangeFilter(type, value) {
+    onChangeReplace(type = '', value = '') {
+        const { selectedArr } = this.state,
+            attrObject = [],
+            rightArr = [];
+
+        for (let i = 0; i < selectedArr.length; i++) {
+            if (!attrObject[selectedArr[i].type]) {
+                rightArr.push(selectedArr[i]);
+                attrObject[selectedArr[i].type] = true;
+            }
+        }
+
+        this.setState({
+            selectedArr: rightArr.map((item, index) => item.type == type ? { ...item, value: value } : item),
+        })
+    }
+
+    onSearchFor(type = '', value = '') {
         if (!value) return;
 
-    const { propsData } = this.props,
+        const { propsData } = this.props,
             typeList = propsData[type].filter(item => {
 
                 if (item.name) {
@@ -148,15 +146,26 @@ export class SearchInput extends Component {
 
     onPropsSearch() {
         const { selectedArr } = this.state;
-        alert(JSON.stringify(selectedArr));
+        if (selectedArr.length) {
+            alert(JSON.stringify(selectedArr));
+        } else {
+            alert('无内容');
+        }
     }
 
     onCloseSeleted(index) {
+        const { selectedArr } = this.state;
+
+        selectedArr.splice(index, 1);
+
+        this.setState({
+            selectedArr
+        })
     }
 
     render() {
         const { onOptional } = this,
-              { optionalArr, typeList, selectedArr } = this.state;
+            { optionalArr, typeList, selectedArr } = this.state;
 
         return (
             <div>

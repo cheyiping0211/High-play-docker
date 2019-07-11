@@ -3,6 +3,7 @@ services:
   server:
     build:
       context: ./server/
+    container_name: cheNode
     command: /usr/app/node_modules/.bin/nodemon src/index.js
     volumes:
       - ./server/:/usr/app
@@ -16,6 +17,7 @@ services:
   client:
     build:
       context: ./client/
+    container_name: cheReact
     command: yarn start
     volumes:
       - ./client/:/usr/app
