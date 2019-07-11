@@ -52,7 +52,6 @@ export class SearchInput extends Component {
         this.setState({ optionalArr })
     }
 
-
     async onSelectedType(item) {
         const { type } = item;
 
