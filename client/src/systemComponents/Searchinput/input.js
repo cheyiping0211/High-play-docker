@@ -145,6 +145,7 @@ export class SearchInput extends Component {
 
     onPropsSearch() {
         const { selectedArr } = this.state;
+        
         if (selectedArr.length) {
             alert(JSON.stringify(selectedArr));
         } else {
