@@ -1,5 +1,6 @@
 ul li{
     list-style: none;
+    width: 30px;
 }
 .close{
     cursor: pointer;
