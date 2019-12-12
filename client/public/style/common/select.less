@@ -1,0 +1,73 @@
+.select-box {
+    position: relative;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    overflow: hidden;
+    .select {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        
+        border: 1px solid rgba(183, 189, 200, 1);
+        outline: none;
+        appearance: none;
+    }
+
+    .select-icon {
+        position: absolute;
+        top: 50%;
+        right: 9px;
+        margin-top: -6px;
+        display: inline-block;
+        color: inherit;
+        font-style: normal;
+        line-height: 0;
+        text-align: center;
+        text-transform: none;
+        vertical-align: -0.125em;
+        text-rendering: optimizeLegibility;
+        color: rgba(0, 0, 0, 0.25);
+        font-size: 12px;
+        line-height: 1;
+        transform-origin: 50% 50%;
+        z-index: 0;
+    }
+}
+
+/* --ie清除--*/
+
+select::-ms-expand {
+    display: none;
+}
+
+/* --火狐、谷歌清除--*/
+
+select {
+    padding: 3px 8px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    //  background: url("arrow.png") no-repeat scroll right center transparent;
+    padding-right: 28px;
+}
+
+option::-ms-expand {
+    display: none;
+}
+
+option {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    line-height: 30px;
+
+}
+
+option:hover {
+    color: #fff;
+    background-color: #2495ff;
+}

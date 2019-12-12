@@ -1,0 +1,82 @@
+.overview {
+    width: 1920px;
+    height: 1080px;
+    margin: auto;
+    display: flex;
+    position: relative;
+
+}
+
+.overview-map {
+    width: 1400px;
+    height: 100%;
+}
+
+.overview-statistics {
+    width: 520px;
+    height: 100%;
+    background: #273037;
+
+    .time {
+        padding-right: 36px;
+        font-size: 24px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        line-height: 33px;
+    }
+
+    .statistics {
+        height: 498px;
+    }
+    .status {
+        padding: 24px 36px;
+    }
+
+    .log-title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-flow: row wrap;
+        background: #2D3A44;
+
+        .title {
+            padding-left: 24px;
+            padding-right: 24px;
+            cursor: pointer;
+        }
+
+        .title.active {
+            background: #516778;
+            cursor: default;
+        }
+    }
+
+    .log-list {
+        box-sizing: border-box;
+        height: 450px;
+        padding: 16px;
+        overflow: hidden;
+
+        .item {
+            padding-left: 24px;
+            padding-right: 24px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 1);
+            line-height: 34px;
+
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            cursor: pointer;
+
+            &:hover {
+                background: #68223A;
+            }
+        }
+
+        .item.active {
+            background: #68223A;
+        }
+    }
+
+}

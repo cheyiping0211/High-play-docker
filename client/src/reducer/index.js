@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-
-import user from './user';
-import app from './app';
-
+import { routerReducer as routing } from 'react-router-redux';
+import trafficReducer from './trafficReducer';
 
 export default combineReducers({
-    user,
-    app,
+    routing,
+    trafficReducer,
 });

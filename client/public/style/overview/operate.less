@@ -1,0 +1,50 @@
+.operate {
+    position: absolute;
+    top: 0;
+    bottom: 0%;
+    right: 0;
+    height: 100%;
+    background: #273037;
+    z-index: 410;
+
+    transition: all .3s cubic-bezier(.7, .3, .1, 1);
+    .content {
+        // position: absolute;
+        right: 0;
+        .title{
+            height: 66px;
+            background-color: #2D3A44;
+            line-height: 66px;
+            color:#FFFFFF;
+            span{
+                cursor: pointer;
+            }
+        }
+    }
+    .details .list{
+        background-color: #516778;
+        width: 60px;
+        .item{
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            span{
+                color:#2D3A44;
+            }
+        }
+        .active{
+            background: #2495FF;
+            svg{
+                fill: #FFFFFF;
+            }
+            span{
+                color:#FFFFFF;
+            }
+        }
+    }
+}
